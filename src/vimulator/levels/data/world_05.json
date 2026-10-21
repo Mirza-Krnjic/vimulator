@@ -1,0 +1,77 @@
+{
+  "world": 5,
+  "title": "The grammar",
+  "intro": "Vim commands are sentences: an operator (d delete, c change, y yank) followed by a motion. Any motion you know works after any operator. Watch the strip at the top as you type.",
+  "levels": [
+    {
+      "id": "5-1", "title": "Delete a word",
+      "brief": "Delete the word this. dw deletes from the cursor to the start of the next word.",
+      "start": ["delete this word"], "cursor": [0, 7], "goal": ["delete word"],
+      "par_keys": "dw", "teaches": ["d", "w"],
+      "hint": "d then w. The trailing space goes with it."
+    },
+    {
+      "id": "5-2", "title": "Change a word",
+      "brief": "Turn this into that. cw deletes the word and enters Insert mode, so you can type the replacement.",
+      "start": ["change this word"], "cursor": [0, 7], "goal": ["change that word"],
+      "par_keys": "cwthat<Esc>", "teaches": ["c", "w"],
+      "hint": "cw keeps the space after the word. That is a deliberate Vim quirk."
+    },
+    {
+      "id": "5-3", "title": "Two words",
+      "brief": "Delete two and three. A count between operator and motion repeats the motion.",
+      "start": ["one two three four"], "cursor": [0, 4], "goal": ["one four"],
+      "par_keys": "d2w", "teaches": ["d", "count", "w"],
+      "hint": "d2w and 2dw do the same thing."
+    },
+    {
+      "id": "5-4", "title": "To the end",
+      "brief": "Delete everything from the cursor to the end of the line. D is a shortcut for d$.",
+      "start": ["keep this, drop the rest"], "cursor": [0, 10], "goal": ["keep this,"],
+      "par_keys": "D", "teaches": ["D", "$"],
+      "hint": "d$ costs two keys, D costs one."
+    },
+    {
+      "id": "5-5", "title": "Change to end",
+      "brief": "Correct the number. C changes from the cursor to the end of the line.",
+      "start": ["the answer is 41"], "cursor": [0, 14], "goal": ["the answer is 42"],
+      "par_keys": "C42<Esc>", "teaches": ["C"],
+      "hint": "C is c$."
+    },
+    {
+      "id": "5-6", "title": "Copy a line",
+      "brief": "Duplicate the line. yy yanks (copies) the line, p puts it below.",
+      "start": ["repeat me"], "cursor": [0, 0], "goal": ["repeat me", "repeat me"],
+      "par_keys": "yyp", "teaches": ["yy", "p"],
+      "hint": "Yank is Vim for copy."
+    },
+    {
+      "id": "5-7", "title": "Three lines",
+      "brief": "Delete the first three lines with a count on dd.",
+      "start": ["a", "b", "c", "d"], "cursor": [0, 0], "goal": ["d"],
+      "par_keys": "3dd", "teaches": ["dd", "count"],
+      "hint": "3dd."
+    },
+    {
+      "id": "5-8", "title": "Count times count",
+      "brief": "Delete six words. A count before the operator and a count before the motion multiply.",
+      "start": ["w1 w2 w3 w4 w5 w6 w7"], "cursor": [0, 0], "goal": ["w7"],
+      "par_keys": "2d3w", "teaches": ["count", "d", "w"],
+      "hint": "2d3w is two times three words. d6w also works."
+    },
+    {
+      "id": "5-9", "title": "Lines downward",
+      "brief": "Delete the first two lines with one operator and one motion. dj deletes this line and the one below.",
+      "start": ["one", "two", "three"], "cursor": [0, 0], "goal": ["three"],
+      "par_keys": "dj", "teaches": ["d", "j"],
+      "hint": "Vertical motions are linewise: the whole lines go."
+    },
+    {
+      "id": "5-10", "title": "Yank to end",
+      "brief": "Make the line read copy thisthis. y$ yanks to the end of the line, $ moves there, p puts after the cursor.",
+      "start": ["copy this"], "cursor": [0, 5], "goal": ["copy thisthis"],
+      "par_keys": "y$$p", "teaches": ["y", "$", "p"],
+      "hint": "Yanking does not move the cursor when the motion goes forward."
+    }
+  ]
+}

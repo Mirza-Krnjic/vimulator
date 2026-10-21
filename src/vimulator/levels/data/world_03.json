@@ -1,0 +1,77 @@
+{
+  "world": 3,
+  "title": "Small edits",
+  "intro": "Normal mode edits without ever entering Insert mode: x deletes a character, r replaces one, dd deletes a line, u undoes, p puts back.",
+  "levels": [
+    {
+      "id": "3-1", "title": "Typo",
+      "brief": "There is one l too many. Move onto an l and press x to delete the character under the cursor.",
+      "start": ["helllo"], "cursor": [0, 0], "goal": ["hello"],
+      "par_keys": "2lx", "teaches": ["x"],
+      "hint": "Any of the three l characters works."
+    },
+    {
+      "id": "3-2", "title": "Wrong letter",
+      "brief": "Turn cat into bat. r followed by a character replaces the character under the cursor.",
+      "start": ["cat"], "cursor": [0, 0], "goal": ["bat"],
+      "par_keys": "rb", "teaches": ["r"],
+      "hint": "r does not enter Insert mode. It takes exactly one character."
+    },
+    {
+      "id": "3-3", "title": "Drop a line",
+      "brief": "Delete the middle line. dd deletes the whole line the cursor is on.",
+      "start": ["keep", "drop", "keep"], "cursor": [0, 0], "goal": ["keep", "keep"],
+      "par_keys": "jdd", "teaches": ["dd"],
+      "hint": "Move first, then dd."
+    },
+    {
+      "id": "3-4", "title": "Undo",
+      "brief": "A character was just deleted by mistake. Press u to undo the last change.",
+      "start": ["do not panic"], "cursor": [0, 0], "prelude_keys": "x", "goal": ["do not panic"],
+      "par_keys": "u", "teaches": ["u"],
+      "hint": "u undoes one change at a time. Press it again to go further back."
+    },
+    {
+      "id": "3-5", "title": "Redo",
+      "brief": "Line two was deleted, then the delete was undone. Redo it with Ctrl-r.",
+      "start": ["one", "two"], "cursor": [0, 0], "prelude_keys": "jddu", "goal": ["one"],
+      "par_keys": "<C-r>", "teaches": ["Ctrl-r"],
+      "hint": "Hold Ctrl and press r."
+    },
+    {
+      "id": "3-6", "title": "Move a line",
+      "brief": "Swap the two lines. dd deletes a line into a register; p puts it back below the cursor.",
+      "start": ["second", "first"], "cursor": [0, 0], "goal": ["first", "second"],
+      "par_keys": "ddp", "teaches": ["dd", "p"],
+      "hint": "Deleted text is not lost. p brings it back."
+    },
+    {
+      "id": "3-7", "title": "Put above",
+      "brief": "Move the last line to the top. P (capital) puts the register above the cursor.",
+      "start": ["one", "two", "three"], "cursor": [2, 0], "goal": ["three", "one", "two"],
+      "par_keys": "ddkkP", "teaches": ["dd", "P", "k"],
+      "hint": "After dd the cursor is on the last remaining line, so you need to move up twice."
+    },
+    {
+      "id": "3-8", "title": "New line",
+      "brief": "Insert the missing line. o opens a new line below the cursor and enters Insert mode.",
+      "start": ["first", "third"], "cursor": [0, 0], "goal": ["first", "second", "third"],
+      "par_keys": "osecond<Esc>", "teaches": ["o"],
+      "hint": "o is open. Lower case opens below."
+    },
+    {
+      "id": "3-9", "title": "Line above",
+      "brief": "Add a title line above. O (capital) opens a line above the cursor.",
+      "start": ["body"], "cursor": [0, 0], "goal": ["title", "body"],
+      "par_keys": "Otitle<Esc>", "teaches": ["O"],
+      "hint": "Capital O opens above."
+    },
+    {
+      "id": "3-10", "title": "Both ends",
+      "brief": "Wrap the word in angle brackets. I inserts at the start of the line, A appends at the end.",
+      "start": ["middle"], "cursor": [0, 3], "goal": ["<middle>"],
+      "par_keys": "I<lt><Esc>A><Esc>", "teaches": ["I", "A"],
+      "hint": "Two insert sessions: I ... Esc, then A ... Esc."
+    }
+  ]
+}
