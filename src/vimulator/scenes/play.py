@@ -52,6 +52,9 @@ class PlayScene(Scene):
         if self.done:
             return
         result = self.editor.feed(key)
+        if result.quit:
+            self.app.pop_to_select(self.level)
+            return
         if result.restart:
             self.reset()
             return
@@ -161,5 +164,5 @@ class PlayScene(Scene):
             hint = wrap_text(fonts.small, "hint: " + level.hint, width - 2 * m - 330)
             hud.draw_text_block(surface, fonts.small, hint, m, y + 4, config.MAUVE)
         hud.draw_counter(surface, fonts.hud, ed.keystrokes, level.par, width - m, fy)
-        help_text = fonts.small.render(":q! restart", True, config.PANEL_EDGE)
+        help_text = fonts.small.render(":q leave    :e! restart", True, config.PANEL_EDGE)
         surface.blit(help_text, (width - m - help_text.get_width(), fy + 40))

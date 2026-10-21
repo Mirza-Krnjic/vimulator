@@ -1,7 +1,7 @@
 {
   "world": 1,
   "title": "Survive",
-  "intro": "Vim has modes. In Normal mode keys are commands. In Insert mode keys type text. Esc always takes you back to Normal mode.",
+  "intro": "Vim has modes. In Normal mode keys are commands. In Insert mode keys type text. Esc always takes you back to Normal mode. In any level, :q and Enter take you back to this list and :e! starts the level over.",
   "levels": [
     {
       "id": "1-1", "title": "Get out",

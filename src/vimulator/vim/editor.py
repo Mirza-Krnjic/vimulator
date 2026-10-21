@@ -40,8 +40,9 @@ class FeedResult:
     invalid: bool = False
     highlight: Highlight | None = None
     before: list[str] = field(default_factory=list)
-    submitted: bool = False
-    restart: bool = False
+    submitted: bool = False  # :wq, :x
+    quit: bool = False  # :q, :q!
+    restart: bool = False  # :e!
 
 
 class Editor:
@@ -321,8 +322,10 @@ class Editor:
             self.mode = Mode.NORMAL
             if cmd in {"wq", "x", "wqa", "xa"}:
                 return FeedResult(submitted=True, description="write and quit")
-            if cmd in {"q!", "q", "qa!", "qa"}:
-                return FeedResult(restart=True, description="quit without saving")
+            if cmd in {"q", "q!", "qa", "qa!"}:
+                return FeedResult(quit=True, description="quit the level")
+            if cmd in {"e", "e!"}:
+                return FeedResult(restart=True, description="reload the level")
             if cmd == "w":
                 return FeedResult(description="write")
             return FeedResult(invalid=True)

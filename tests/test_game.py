@@ -102,12 +102,34 @@ def test_grammar_hud_and_flash(game: Game) -> None:
     assert play.flash_lines is None
 
 
-def test_q_bang_restarts_level(game: Game) -> None:
+def test_e_bang_restarts_level(game: Game) -> None:
     send(game, "jjjj<CR>")  # 1-5 "Save and quit", starts in Normal mode
-    send(game, "jj:q!<CR>")
+    send(game, "jj:e!<CR>")
     play = game.scenes[-1]
     assert isinstance(play, PlayScene)
     assert play.editor.keystrokes == 0
+
+
+def test_q_leaves_level_and_keeps_the_selection(game: Game) -> None:
+    send(game, "ljj<CR>")  # world 2, third level
+    play = game.scenes[-1]
+    assert isinstance(play, PlayScene) and play.level.id == "2-3"
+    send(game, "j:q<CR>")
+    select = game.scenes[-1]
+    assert isinstance(select, LevelSelectScene)
+    assert len(game.scenes) == 1
+    assert (select.world_index, select.level_index) == (1, 2)
+    assert "2-3" not in game.progress
+
+
+def test_q_from_results_returns_to_that_level(game: Game) -> None:
+    send(game, "j<CR>")  # 1-2
+    send(game, "ihi<Esc>")
+    assert isinstance(game.scenes[-1], ResultsScene)
+    send(game, "q")
+    select = game.scenes[-1]
+    assert isinstance(select, LevelSelectScene)
+    assert (select.world_index, select.level_index) == (0, 1)
 
 
 def test_quit_from_level_select(game: Game) -> None:

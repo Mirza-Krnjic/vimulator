@@ -19,7 +19,7 @@ uv run vimulator
 ```
 
 Level select: `j`/`k` pick a level, `h`/`l` switch world, Enter plays, `q` quits.
-In a level: the keys taught so far, `:q!` restarts, `:wq` submits where the level asks for it.
+In a level: the keys taught so far. `:q` goes back to the list, `:e!` restarts the level, `:wq` submits where the level asks for it.
 After a level: Enter for the next one, `r` to retry, `q` back to the list.
 
 ## Develop

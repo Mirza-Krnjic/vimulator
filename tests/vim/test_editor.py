@@ -41,10 +41,15 @@ def test_cmdline_wq_submits() -> None:
     assert editor.cmdline == ""
 
 
-def test_cmdline_q_bang_restarts() -> None:
-    editor = Editor(["x"])
-    result = editor.feed_all(parse_keys(":q!<CR>"))
-    assert result.restart
+def test_cmdline_q_quits_and_e_bang_restarts() -> None:
+    for notation in (":q<CR>", ":q!<CR>", ":qa<CR>"):
+        editor = Editor(["x"])
+        result = editor.feed_all(parse_keys(notation))
+        assert result.quit and not result.restart, notation
+    for notation in (":e<CR>", ":e!<CR>"):
+        editor = Editor(["x"])
+        result = editor.feed_all(parse_keys(notation))
+        assert result.restart and not result.quit, notation
 
 
 def test_cmdline_esc_and_backspace_leave() -> None:
