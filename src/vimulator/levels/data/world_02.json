@@ -1,0 +1,59 @@
+{
+  "world": 2,
+  "title": "Move",
+  "intro": "In Normal mode h j k l move the cursor: left, down, up, right. A number before a motion repeats it. These levels are about reaching the target.",
+  "levels": [
+    {
+      "id": "2-1", "title": "Right",
+      "brief": "Move the cursor onto the d. l moves right. Tip: a count repeats a motion, so 3l moves three characters.",
+      "start": ["abcdefgh"], "cursor": [0, 0], "goal": ["abcdefgh"], "goal_cursor": [0, 3],
+      "par_keys": "3l", "teaches": ["l", "count"],
+      "hint": "Three presses of l also work, but cost three keystrokes."
+    },
+    {
+      "id": "2-2", "title": "Down",
+      "brief": "Move to the last line. j moves down.",
+      "start": ["one", "two", "three", "four"], "cursor": [0, 0], "goal": ["one", "two", "three", "four"], "goal_cursor": [3, 0],
+      "par_keys": "3j", "teaches": ["j", "count"],
+      "hint": "3j."
+    },
+    {
+      "id": "2-3", "title": "Corner",
+      "brief": "Reach the X. Two lines down and five to the right.",
+      "start": ["........", "........", ".....X..", "........"], "cursor": [0, 0],
+      "goal": ["........", "........", ".....X..", "........"], "goal_cursor": [2, 5],
+      "par_keys": "2j5l", "teaches": ["j", "l", "count"],
+      "hint": "Order does not matter: 5l2j is the same cost."
+    },
+    {
+      "id": "2-4", "title": "Back home",
+      "brief": "Move to the first column. 0 (zero) jumps to the start of the line in one keystroke.",
+      "start": ["jump to the start"], "cursor": [0, 10], "goal": ["jump to the start"], "goal_cursor": [0, 0],
+      "par_keys": "0", "teaches": ["0"],
+      "hint": "Ten presses of h is ten keystrokes. 0 is one."
+    },
+    {
+      "id": "2-5", "title": "To the end",
+      "brief": "Move to the last character. $ jumps to the end of the line.",
+      "start": ["and to the end"], "cursor": [0, 2], "goal": ["and to the end"], "goal_cursor": [0, 13],
+      "par_keys": "$", "teaches": ["$"],
+      "hint": "Think of $ as the end of a line in a regular expression."
+    },
+    {
+      "id": "2-6", "title": "Up and left",
+      "brief": "Reach the p of alpha. k moves up, h moves left. Use counts.",
+      "start": ["alpha beta", "gamma delta", "epsilon zeta"], "cursor": [2, 8],
+      "goal": ["alpha beta", "gamma delta", "epsilon zeta"], "goal_cursor": [0, 2],
+      "par_keys": "2k6h", "teaches": ["k", "h", "count"],
+      "hint": "Count the characters before you press."
+    },
+    {
+      "id": "2-7", "title": "Remember the column",
+      "brief": "Press j once. The cursor cannot sit past the end of a short line, so it clamps. Move down to the d.",
+      "start": ["short", "a much longer line", "mid"], "cursor": [1, 15],
+      "goal": ["short", "a much longer line", "mid"], "goal_cursor": [2, 2],
+      "par_keys": "j", "teaches": ["j"],
+      "hint": "Vim remembers the column you wanted, and returns to it when a longer line comes."
+    }
+  ]
+}

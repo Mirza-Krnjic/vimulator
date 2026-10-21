@@ -1,0 +1,63 @@
+{
+  "world": 4,
+  "title": "Word motions",
+  "intro": "w jumps to the start of the next word, b to the start of the previous one, e to the end of the current word. Punctuation counts as its own word. Counts work here too.",
+  "levels": [
+    {
+      "id": "4-1", "title": "Next word",
+      "brief": "Move to the start of quick. w jumps forward one word.",
+      "start": ["the quick brown fox"], "cursor": [0, 0], "goal": ["the quick brown fox"], "goal_cursor": [0, 4],
+      "par_keys": "w", "teaches": ["w"],
+      "hint": "w for word."
+    },
+    {
+      "id": "4-2", "title": "Three words",
+      "brief": "Move to the start of fox. Use a count with w.",
+      "start": ["the quick brown fox"], "cursor": [0, 0], "goal": ["the quick brown fox"], "goal_cursor": [0, 16],
+      "par_keys": "3w", "teaches": ["w", "count"],
+      "hint": "3w."
+    },
+    {
+      "id": "4-3", "title": "Word end",
+      "brief": "Move to the last letter of jump. e jumps to the end of the word.",
+      "start": ["jump to the end"], "cursor": [0, 0], "goal": ["jump to the end"], "goal_cursor": [0, 3],
+      "par_keys": "e", "teaches": ["e"],
+      "hint": "e for end."
+    },
+    {
+      "id": "4-4", "title": "Back",
+      "brief": "Move to the start of three. b jumps back one word.",
+      "start": ["one two three"], "cursor": [0, 12], "goal": ["one two three"], "goal_cursor": [0, 8],
+      "par_keys": "b", "teaches": ["b"],
+      "hint": "b for back."
+    },
+    {
+      "id": "4-5", "title": "Punctuation counts",
+      "brief": "Move to the b of bar. The dot is a word of its own, so it takes two w presses, or one count.",
+      "start": ["foo.bar(baz)"], "cursor": [0, 0], "goal": ["foo.bar(baz)"], "goal_cursor": [0, 4],
+      "par_keys": "2w", "teaches": ["w"],
+      "hint": "foo, then the dot, then bar."
+    },
+    {
+      "id": "4-6", "title": "First non-blank",
+      "brief": "Move to the i of indented. ^ jumps to the first non-blank character, which is usually what you want instead of 0.",
+      "start": ["    indented"], "cursor": [0, 11], "goal": ["    indented"], "goal_cursor": [0, 4],
+      "par_keys": "^", "teaches": ["^"],
+      "hint": "0 would land on the first space."
+    },
+    {
+      "id": "4-7", "title": "Delete at the word",
+      "brief": "Fix thhe. Jump to the word, step onto the extra h, delete it with x.",
+      "start": ["fix thhe typo"], "cursor": [0, 0], "goal": ["fix the typo"],
+      "par_keys": "wlx", "teaches": ["w", "l", "x"],
+      "hint": "w lands on the t. One l reaches the first h."
+    },
+    {
+      "id": "4-8", "title": "End of a longer word",
+      "brief": "Move to the last letter of betagamma using e with a count.",
+      "start": ["alpha betagamma delta"], "cursor": [0, 0], "goal": ["alpha betagamma delta"], "goal_cursor": [0, 14],
+      "par_keys": "2e", "teaches": ["e", "count"],
+      "hint": "The first e reaches the end of alpha."
+    }
+  ]
+}

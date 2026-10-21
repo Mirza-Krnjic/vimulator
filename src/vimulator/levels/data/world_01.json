@@ -1,0 +1,57 @@
+{
+  "world": 1,
+  "title": "Survive",
+  "intro": "Vim has modes. In Normal mode keys are commands. In Insert mode keys type text. Esc always takes you back to Normal mode.",
+  "levels": [
+    {
+      "id": "1-1", "title": "Get out",
+      "brief": "You are in Insert mode (see the badge at the top right). Press Esc to return to Normal mode. That is the whole level.",
+      "start": ["hello world"], "cursor": [0, 5], "start_mode": "insert",
+      "goal": ["hello world"],
+      "par_keys": "<Esc>", "teaches": ["Esc"],
+      "hint": "Esc is the most important key in Vim. When in doubt, press it."
+    },
+    {
+      "id": "1-2", "title": "Say hi",
+      "brief": "The buffer is empty. Press i to enter Insert mode, type hi, then press Esc.",
+      "start": [""], "goal": ["hi"],
+      "par_keys": "ihi<Esc>", "teaches": ["i", "Esc"],
+      "hint": "i inserts before the cursor. Everything you type until Esc goes into the text."
+    },
+    {
+      "id": "1-3", "title": "Finish the word",
+      "brief": "The cursor is on the last letter. i would insert before it. Use a to append after the cursor, type or, then Esc.",
+      "start": ["vimulat"], "cursor": [0, 6], "goal": ["vimulator"],
+      "par_keys": "aor<Esc>", "teaches": ["a"],
+      "hint": "a is i shifted one character to the right."
+    },
+    {
+      "id": "1-4", "title": "Capital",
+      "brief": "Add an exclamation mark at the end of the line. A appends at the end of the line no matter where the cursor is.",
+      "start": ["learn vim"], "cursor": [0, 0], "goal": ["learn vim!"],
+      "par_keys": "A!<Esc>", "teaches": ["A"],
+      "hint": "Capital A means append at the end of the line."
+    },
+    {
+      "id": "1-5", "title": "Save and quit",
+      "brief": "Nothing to change here. Type :wq and press Enter. In Vim that writes the file and quits; here it submits the level.",
+      "start": ["ready"], "goal": ["ready"], "requires_submit": true,
+      "par_keys": ":wq<CR>", "teaches": [":wq"],
+      "hint": "The colon opens the command line at the bottom. w is write, q is quit."
+    },
+    {
+      "id": "1-6", "title": "Fix and save",
+      "brief": "Add a full stop at the end, then :wq to submit.",
+      "start": ["Normal mode is home"], "cursor": [0, 0], "goal": ["Normal mode is home."], "requires_submit": true,
+      "par_keys": "A.<Esc>:wq<CR>", "teaches": ["A", ":wq"],
+      "hint": "Esc first. The colon only works in Normal mode."
+    },
+    {
+      "id": "1-7", "title": "Keep typing",
+      "brief": "You are already in Insert mode at the end of the line. Type a space and sat, then Esc.",
+      "start": ["the cat"], "cursor": [0, 7], "start_mode": "insert", "goal": ["the cat sat"],
+      "par_keys": "<Space>sat<Esc>", "teaches": ["Esc"],
+      "hint": "Check the mode badge before you type."
+    }
+  ]
+}
