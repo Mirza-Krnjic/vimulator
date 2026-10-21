@@ -1,12 +1,7 @@
-import os
+import pygame
 
-os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
-os.environ.setdefault("SDL_AUDIODRIVER", "dummy")
-
-import pygame  # noqa: E402
-
-import vimulator  # noqa: E402
-from vimulator.game import Game  # noqa: E402
+import vimulator
+from vimulator.game import Game
 
 
 def test_version() -> None:
